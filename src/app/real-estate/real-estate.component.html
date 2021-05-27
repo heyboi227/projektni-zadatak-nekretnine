@@ -1,4 +1,4 @@
-<h1 mat-dialog-title fxLayoutAlign="center center">Izmena korisničkih podataka</h1>
+<h1 mat-dialog-title fxLayoutAlign="center center">Izmena oglasa</h1>
 <div fxLayoutAlign="space-between">
   <button mat-button [mat-dialog-close]="true">
     <mat-icon matListIcon>close</mat-icon>
@@ -17,8 +17,8 @@
         <mat-form-field appearance="fill">
           <mat-label>Kategorija</mat-label>
           <mat-select name="category" [(ngModel)]="this.advertForEditing.category" matInput ngModel required>
-            <mat-option value="Kuća">Kuća</mat-option>
-            <mat-option value="Stan">Stan</mat-option>
+            <mat-option>Kuća</mat-option>
+            <mat-option>Stan</mat-option>
           </mat-select>
         </mat-form-field>
       </div>
@@ -32,8 +32,8 @@
         <mat-form-field appearance="fill">
           <mat-label>Tip oglasa</mat-label>
           <mat-select name="advertType" [(ngModel)]="this.advertForEditing.advertType" matInput ngModel required>
-            <mat-option value="Prodaja">Prodaja</mat-option>
-            <mat-option value="Izdavanje">Izdavanje</mat-option>
+            <mat-option>Prodaja</mat-option>
+            <mat-option>Izdavanje</mat-option>
           </mat-select>
         </mat-form-field>
       </div>
@@ -65,7 +65,7 @@
 
     <mat-card>
 
-      <div fxLayout="row" fxLayoutAlign="start center" fxLayout="1vw">
+      <div fxLayout="row" fxLayoutAlign="start center" fxLayout="50vw">
 
         <mat-form-field>
           <input matInput type="text" placeholder="Opis" ngModel name="description"
@@ -140,18 +140,13 @@
 
       <div fxLayout="row" fxLayoutAlign="start center" fxLayout="1vw" fxLayoutGap="25px">
 
-        <mat-checkbox ngModel name="isRegistered" value="this.advertForEditing.isRegistered"
-          [(ngModel)]="this.advertForEditing.isRegistered">Uknjižen
+        <mat-checkbox ngModel name="isRegistered" [(ngModel)]="this.advertForEditing.isRegistered">Uknjižen
         </mat-checkbox>
-        <mat-checkbox ngModel name="isOnALot" value="this.advertForEditing.isOnALot"
-          [(ngModel)]="this.advertForEditing.isOnALot">Na placu</mat-checkbox>
-        <mat-checkbox ngModel name="isPermitted" value="this.advertForEditing.isPermitted"
-          [(ngModel)]="this.advertForEditing.isPermitted">Dozvola za gradnju
+        <mat-checkbox ngModel name="isOnALot" [(ngModel)]="this.advertForEditing.isOnALot">Na placu</mat-checkbox>
+        <mat-checkbox ngModel name="isPermitted" [(ngModel)]="this.advertForEditing.isPermitted">Dozvola za gradnju
         </mat-checkbox>
-        <mat-checkbox ngModel name="hasElevator" value="this.advertForEditing.hasElevator"
-          [(ngModel)]="this.advertForEditing.hasElevator">Lift</mat-checkbox>
-        <mat-checkbox ngModel name="hasTerrace" value="this.advertForEditing.hasTerrace"
-          [(ngModel)]="this.advertForEditing.hasTerrace">Terasa</mat-checkbox>
+        <mat-checkbox ngModel name="hasElevator" [(ngModel)]="this.advertForEditing.hasElevator">Lift</mat-checkbox>
+        <mat-checkbox ngModel name="hasTerrace" [(ngModel)]="this.advertForEditing.hasTerrace">Terasa</mat-checkbox>
 
       </div>
     </mat-card>
@@ -159,18 +154,13 @@
     <mat-card>
 
       <div fxLayout="row" fxLayoutAlign="start center" fxLayout="1vw" fxLayoutGap="25px">
-        <mat-checkbox ngModel name="hasParking" value="this.advertForEditing.hasParking"
-          [(ngModel)]="this.advertForEditing.hasParking">Parking</mat-checkbox>
-        <mat-checkbox ngModel name="hasCableTv" value="this.advertForEditing.hasCableTv"
-          [(ngModel)]="this.advertForEditing.hasCableTv">Kablovska TV
+        <mat-checkbox ngModel name="hasParking" [(ngModel)]="this.advertForEditing.hasParking">Parking</mat-checkbox>
+        <mat-checkbox ngModel name="hasCableTv" [(ngModel)]="this.advertForEditing.hasCableTv">Kablovska TV
         </mat-checkbox>
-        <mat-checkbox ngModel name="hasInternet" value="this.advertForEditing.hasInternet"
-          [(ngModel)]="this.advertForEditing.hasInternet">Internet
+        <mat-checkbox ngModel name="hasInternet" [(ngModel)]="this.advertForEditing.hasInternet">Internet
         </mat-checkbox>
-        <mat-checkbox ngModel name="hasPhone" value="this.advertForEditing.hasPhone"
-          [(ngModel)]="this.advertForEditing.hasPhone">Telefon</mat-checkbox>
-        <mat-checkbox ngModel name="hasIntercom" value="this.advertForEditing.hasIntercom"
-          [(ngModel)]="this.advertForEditing.hasIntercom">Interfon
+        <mat-checkbox ngModel name="hasPhone" [(ngModel)]="this.advertForEditing.hasPhone">Telefon</mat-checkbox>
+        <mat-checkbox ngModel name="hasIntercom" [(ngModel)]="this.advertForEditing.hasIntercom">Interfon
         </mat-checkbox>
 
       </div>

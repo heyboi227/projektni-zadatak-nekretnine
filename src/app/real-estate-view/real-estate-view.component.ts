@@ -26,7 +26,7 @@ export class RealEstateViewComponent implements OnInit {
     this.realEstateOpened = true;
 
     const profileDialog = this.dialog.open(RealEstateComponent, {
-      disableClose: true,
+      disableClose: false,
       width: "35vw",
       data: { rEstate: this.realEstateService.getRealEstateById(advertId) }
     });

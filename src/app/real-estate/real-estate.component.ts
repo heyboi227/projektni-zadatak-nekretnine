@@ -44,9 +44,28 @@ export class RealEstateComponent implements OnInit {
     };
   }
 
-  finishEditing(form: NgForm): void {
-    this.data.user.email = this.advertForEditing.category;
-    this.data.user.password = this.advertForEditing.advertType;
+  finishEditing(): void {
+    this.data.rEstate.category = this.advertForEditing.category;
+    this.data.rEstate.advertType = this.advertForEditing.advertType;
+    this.data.rEstate.title = this.advertForEditing.title;
+    this.data.rEstate.location = this.advertForEditing.location;
+    this.data.rEstate.description = this.advertForEditing.description;
+    this.data.rEstate.imagePath = this.advertForEditing.imagePath;
+    this.data.rEstate.isRegistered = this.advertForEditing.isRegistered;
+    this.data.rEstate.isOnALot = this.advertForEditing.isOnALot;
+    this.data.rEstate.isPermitted = this.advertForEditing.isPermitted;
+    this.data.rEstate.price = this.advertForEditing.price;
+    this.data.rEstate.quadrature = this.advertForEditing.quadrature;
+    this.data.rEstate.numOfRooms = this.advertForEditing.numOfRooms;
+    this.data.rEstate.heating = this.advertForEditing.heating;
+    this.data.rEstate.numOfFloor = this.advertForEditing.numOfFloor;
+    this.data.rEstate.hasElevator = this.advertForEditing.hasElevator;
+    this.data.rEstate.hasTerrace = this.advertForEditing.hasTerrace;
+    this.data.rEstate.hasParking = this.advertForEditing.hasParking;
+    this.data.rEstate.hasCableTv = this.advertForEditing.hasCableTv;
+    this.data.rEstate.hasInternet = this.advertForEditing.hasInternet;
+    this.data.rEstate.hasPhone = this.advertForEditing.hasPhone;
+    this.data.rEstate.hasIntercom = this.advertForEditing.hasIntercom
   }
 
 }

@@ -1,0 +1,55 @@
+<div id="wrapper" fxLayoutAlign="center top">
+  <div id="adverts-list">
+    <div class="advert" *ngFor="let rEstate of this.realEstateSource.data" fxLayoutAlign="space-between center">
+      <img class="advert-img" src="{{ rEstate.imagePath }}" alt="Slika nekretnine" width="350px" height="250px">
+      <div class="info-area" fxLayout="column">
+        <div class="info">
+          <div class="price-listed">{{ rEstate.price | number }} €</div>
+          <div class="mandatory-info">{{ rEstate.quadrature | number}}m²&nbsp;&nbsp;{{ rEstate.numOfRooms |
+                        number}} soba(e)&nbsp;&nbsp;{{ rEstate.numOfFloor }} spratova</div>
+        </div>
+        <div class="info-list" fxLayout="row">
+          <ul class="additional-info">
+            <li>Tip nekretnine: {{ rEstate.category }}</li>
+            <li>Tip oglasa: {{ rEstate.advertType }}</li>
+            <li>Lokacija: {{ rEstate.location }}</li>
+            <li>Opis: {{ rEstate.description }}</li>
+            <li *ngIf="rEstate.isRegistered">Uknjižen: Da</li>
+            <li *ngIf="!rEstate.isRegistered">Uknjižen: Ne</li>
+            <li *ngIf="rEstate.isOnALot">Na placu: Da</li>
+            <li *ngIf="!rEstate.isOnALot">Na placu: Ne</li>
+            <li *ngIf="rEstate.isPermitted">Dozvola za gradnju: Da</li>
+            <li *ngIf="!rEstate.isPermitted">Dozvola za gradnju: Ne</li>
+            <li></li>
+          </ul>
+          <ul class="additional-info">
+            <li>Grejanje: {{ rEstate.heating }}</li>
+            <li *ngIf="rEstate.hasElevator">Lift: Da</li>
+            <li *ngIf="!rEstate.hasElevator">Lift: Ne</li>
+            <li *ngIf="rEstate.hasTerrace">Terasa: Da</li>
+            <li *ngIf="!rEstate.hasTerrace">Terasa: Ne</li>
+            <li *ngIf="rEstate.hasParking">Parking: Da</li>
+            <li *ngIf="!rEstate.hasParking">Parking: Ne</li>
+            <li *ngIf="rEstate.hasCableTv">Kablovska TV: Da</li>
+            <li *ngIf="!rEstate.hasCableTv">Kablovska TV: Ne</li>
+            <li *ngIf="rEstate.hasInternet">Internet: Da</li>
+            <li *ngIf="!rEstate.hasInternet">Internet: Ne</li>
+            <li *ngIf="rEstate.hasPhone">Telefon: Da</li>
+            <li *ngIf="!rEstate.hasPhone">Telefon: Ne</li>
+            <li *ngIf="rEstate.hasIntercom">Interfon: Da</li>
+            <li *ngIf="!rEstate.hasIntercom">Interfon: Ne</li>
+            <li>Kreirano: {{ rEstate.createdAt }}</li>
+          </ul>
+        </div>
+        <div fxFlex fxLayoutAlign="end center" fxLayoutGap="10px">
+          <button mat-raised-button color="primary" (click)="editAdvert(rEstate.id)">
+            Izmeni
+          </button>
+          <button mat-raised-button color="warn" (click)="deleteAdvert(rEstate.id)">
+            Ukloni
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

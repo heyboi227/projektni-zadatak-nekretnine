@@ -1,0 +1,18 @@
+.list-items {
+    list-style-type: none;
+    font-size: 25px;
+    font-weight: bold;
+}
+
+.list-items a {
+    text-decoration: none;
+    color: rgb(58, 61, 228);
+}
+
+#logo-holder {
+    margin-left: 10vw;
+}
+
+.list-items a:hover, .active {
+    color: orange!important;
+}

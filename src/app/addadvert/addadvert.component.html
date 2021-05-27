@@ -1,0 +1,74 @@
+<form id="advert-form" fxLayout="column" fxLayoutAlign="center center" fxLayoutGap="10px" #f="ngForm"
+    (ngSubmit)="onSubmit(f)" enctype="multipart/form-data">
+    <p class="error-text">{{ this.errorText }}</p>
+    <mat-form-field appearance="fill">
+        <mat-label>Kategorija</mat-label>
+        <mat-select name="category" ngModel matInput required>
+            <mat-option value="Kuća">Kuća</mat-option>
+            <mat-option value="Stan">Stan</mat-option>
+        </mat-select>
+    </mat-form-field>
+    <mat-form-field appearance="fill">
+        <mat-label>Tip oglasa</mat-label>
+        <mat-select name="advertType" ngModel matInput required>
+            <mat-option value="Prodaja">Prodaja</mat-option>
+            <mat-option value="Izdavanje">Izdavanje</mat-option>
+        </mat-select>
+    </mat-form-field>
+    <mat-form-field>
+        <input type="text" matInput placeholder="Naziv" ngModel name="title" required maxlength="255"
+            #titleInput="ngModel">
+        <mat-error *ngIf="titleInput.hasError('required')">Polje ne bi smelo da bude prazno.</mat-error>
+    </mat-form-field>
+    <mat-form-field>
+        <input type="text" matInput placeholder="Lokacija" ngModel name="location" required maxlength="255"
+            #locInput="ngModel">
+        <mat-error *ngIf="locInput.hasError('required')">Polje ne bi smelo da bude prazno.</mat-error>
+    </mat-form-field>
+    <mat-form-field>
+        <textarea matInput placeholder="Opis" ngModel name="description" required rows="5"
+            #descInput="ngModel"></textarea>
+        <mat-error *ngIf="descInput.hasError('required')">Polje ne bi smelo da bude prazno.</mat-error>
+    </mat-form-field>
+    <mat-form-field>
+        <input type="number" step="1000" matInput placeholder="Cena nekretnine" ngModel name="price" required
+            #priceInput="ngModel">
+        <mat-error *ngIf="priceInput.hasError('required')">Polje ne bi smelo da bude prazno.</mat-error>
+    </mat-form-field>
+    <mat-form-field>
+        <input type="number" step="10" matInput placeholder="Kvadratura" ngModel name="quadrature" required
+            #quadratureInput="ngModel">
+        <mat-error *ngIf="quadratureInput.hasError('required')">Polje ne bi smelo da bude prazno.</mat-error>
+    </mat-form-field>
+    <mat-form-field>
+        <input type="number" matInput placeholder="Broj soba" ngModel name="numOfRooms" required #roomInput="ngModel">
+        <mat-error *ngIf="roomInput.hasError('required')">Polje ne bi smelo da bude prazno.</mat-error>
+    </mat-form-field>
+    <mat-form-field>
+        <input type="text" matInput placeholder="Grejanje" ngModel name="heating" required #heatingInput="ngModel">
+        <mat-error *ngIf="heatingInput.hasError('required')">Polje ne bi smelo da bude prazno.</mat-error>
+    </mat-form-field>
+    <mat-form-field>
+        <input type="text" matInput placeholder="Broj spratova" ngModel name="numOfFloor" required
+            #floorInput="ngModel">
+        <mat-error *ngIf="floorInput.hasError('required')">Polje ne bi smelo da bude prazno.</mat-error>
+    </mat-form-field>
+    <div fxLayout="row" fxLayoutGap="25px">
+        <mat-checkbox ngModel name="isRegistered">Uknjižen</mat-checkbox>
+        <mat-checkbox ngModel name="isOnALot">Na placu</mat-checkbox>
+        <mat-checkbox ngModel name="isPermitted">Dozvola za gradnju</mat-checkbox>
+        <mat-checkbox ngModel name="hasElevator">Lift</mat-checkbox>
+        <mat-checkbox ngModel name="hasTerrace">Terasa</mat-checkbox>
+    </div>
+    <div fxLayout="row" fxLayoutGap="25px">
+        <mat-checkbox ngModel name="hasParking">Parking</mat-checkbox>
+        <mat-checkbox ngModel name="hasCableTv">Kablovska TV</mat-checkbox>
+        <mat-checkbox ngModel name="hasInternet">Internet</mat-checkbox>
+        <mat-checkbox ngModel name="hasPhone">Telefon</mat-checkbox>
+        <mat-checkbox ngModel name="hasIntercom">Interfon</mat-checkbox>
+    </div>
+    <input id="file-input" type="file" placeholder="Slika nekretnine" ngModel name="imagePath" required>
+    <div>
+        <button type="submit" [disabled]="f.invalid" mat-raised-button color="warn">Registruj se</button>
+    </div>
+</form>

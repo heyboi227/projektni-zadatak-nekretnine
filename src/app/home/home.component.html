@@ -1,0 +1,35 @@
+<div id="container" fxLayoutAlign="center center">
+  <div id="filter-container" fxLayoutAlign="center center">
+    <form id="search-form" fxLayoutGap="15px" #f="ngForm" (ngSubmit)="onSubmit(f)">
+      <mat-form-field appearance="fill">
+        <mat-label>Kategorija</mat-label>
+        <mat-select ngModel matInput name="category">
+          <mat-option value="Kuća">Kuća</mat-option>
+          <mat-option value="Stan">Stan</mat-option>
+        </mat-select>
+      </mat-form-field>
+      <mat-form-field appearance="fill">
+        <mat-label>Tip oglasa</mat-label>
+        <mat-select ngModel matInput name="advertType">
+          <mat-option value="Prodaja">Prodaja</mat-option>
+          <mat-option value="Izdavanje">Izdavanje</mat-option>
+        </mat-select>
+      </mat-form-field>
+      <mat-form-field appearance="fill">
+        <mat-label>Lokacija</mat-label>
+        <mat-select ngModel matInput name="location">
+          <mat-option *ngFor="let loc of this.realEstateService.dummyRealEstateList" [value]="loc.location">{{
+                        loc.location }}
+          </mat-option>
+        </mat-select>
+      </mat-form-field><br>
+      <mat-form-field>
+        <input type="number" step="10" matInput placeholder="Kvadratura od" ngModel name="quadrature">
+      </mat-form-field>
+      <mat-form-field>
+        <input type="number" step="1000" matInput placeholder="Cena do" ngModel name="price">
+      </mat-form-field>
+      <button type="submit" mat-raised-button color="primary">Pretraži</button>
+    </form>
+  </div>
+</div>

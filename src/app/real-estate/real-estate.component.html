@@ -1,13 +1,7 @@
-<h1 mat-dialog-title fxLayoutAlign="center center">Izmena oglasa</h1>
+<h1 mat-dialog-title fxLayoutAlign="center center">Izmena korisničkih podataka</h1>
 <div fxLayoutAlign="space-between">
   <button mat-button [mat-dialog-close]="true">
     <mat-icon matListIcon>close</mat-icon>
-  </button>
-
-
-  <button mat-icon-button>
-    <mat-icon matListIcon *ngIf="this.advertForEdit.id == this.userService.currentUser.id"
-      (click)="this.isEditing = !this.isEditing">edit</mat-icon>
   </button>
 
 </div>
@@ -15,128 +9,173 @@
 
 <mat-dialog-content>
   <form fxLayout="column" fxLayoutGap="2vh" #editForm="ngForm" (ngSubmit)="finishEditing(editForm)">
-    <!-- Email -->
+    <!-- Category -->
     <mat-card>
 
       <div fxLayout="row" fxLayoutAlign="start center" fxLayout="1vw">
 
-        <mat-icon>email</mat-icon>
-        <div fxLayoutAlign="column" *ngIf="!this.isEditing">
-          <mat-card-subtitle>Email&nbsp;</mat-card-subtitle>
-          <span>{{ this.profileForInput.email }}</span>
-        </div>
-
-        <mat-form-field *ngIf="this.isEditing">
-          <input matInput type="email" placeholder="Vaša email adresa" ngModel name="email"
-            [(ngModel)]="this.profileForInput.email" email required #emailInput="ngModel">
-          <mat-error *ngIf="emailInput.hasError('required')">Email je obavezan</mat-error>
-          <mat-error *ngIf="!emailInput.hasError('required')">Email nije u dobrom formatu</mat-error>
+        <mat-form-field appearance="fill">
+          <mat-label>Kategorija</mat-label>
+          <mat-select name="category" [(ngModel)]="this.advertForEditing.category" matInput ngModel required>
+            <mat-option value="Kuća">Kuća</mat-option>
+            <mat-option value="Stan">Stan</mat-option>
+          </mat-select>
         </mat-form-field>
       </div>
     </mat-card>
 
-    <!-- Password -->
-    <mat-card *ngIf="this.isEditing">
-
-      <div fxLayout="row" fxLayoutAlign="start center" fxLayout="1vw">
-        <mat-icon>lock</mat-icon>
-        <mat-form-field hintLabel="Minimum 8 karaktera">
-          <input matInput type="password" placeholder="Vaša šifra" ngModel name="password" minlength="8"
-            [(ngModel)]="this.profileForInput.password" password required #passwordInput="ngModel">
-          <mat-hint align="end">{{ passwordInput.value?.length }} / 8</mat-hint>
-        </mat-form-field>
-      </div>
-    </mat-card>
-
-    <!-- Ime -->
+    <!-- Advert type -->
     <mat-card>
 
       <div fxLayout="row" fxLayoutAlign="start center" fxLayout="1vw">
-        <div fxLayoutAlign="column" *ngIf="!this.isEditing">
 
-          <mat-card-subtitle>Ime&nbsp;</mat-card-subtitle>
-          <span>{{ this.profileForInput.name }}</span>
-        </div>
+        <mat-form-field appearance="fill">
+          <mat-label>Tip oglasa</mat-label>
+          <mat-select name="advertType" [(ngModel)]="this.advertForEditing.advertType" matInput ngModel required>
+            <mat-option value="Prodaja">Prodaja</mat-option>
+            <mat-option value="Izdavanje">Izdavanje</mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+    </mat-card>
 
-        <mat-form-field *ngIf="this.isEditing">
-          <input matInput type="text" placeholder="Vaše ime" ngModel name="name" [(ngModel)]="this.profileForInput.name"
-            required #nameInput="ngModel">
+    <mat-card>
+
+      <div fxLayout="row" fxLayoutAlign="start center" fxLayout="1vw">
+
+        <mat-form-field>
+          <input matInput type="text" placeholder="Naziv" ngModel name="title" [(ngModel)]="this.advertForEditing.title"
+            required #titleInput="ngModel">
         </mat-form-field>
 
       </div>
     </mat-card>
 
-    <!-- Prezime -->
     <mat-card>
 
       <div fxLayout="row" fxLayoutAlign="start center" fxLayout="1vw">
-        <div fxLayoutAlign="column" *ngIf="!this.isEditing">
 
-          <mat-card-subtitle>Prezime&nbsp;</mat-card-subtitle>
-          <span>{{ this.profileForInput.surname }}</span>
-        </div>
-
-        <mat-form-field *ngIf="this.isEditing">
-          <input matInput type="text" placeholder="Vaše prezime" ngModel name="surname"
-            [(ngModel)]="this.profileForInput.surname" required #surnameInput="ngModel">
+        <mat-form-field>
+          <input matInput type="text" placeholder="Lokacija" ngModel name="location"
+            [(ngModel)]="this.advertForEditing.location" required #locInput="ngModel">
         </mat-form-field>
 
       </div>
     </mat-card>
 
-    <!-- Datum rodjenja -->
     <mat-card>
 
       <div fxLayout="row" fxLayoutAlign="start center" fxLayout="1vw">
-        <div fxLayoutAlign="column">
 
-          <mat-icon>calendar_today</mat-icon>
-          <mat-card-subtitle>Datum rođenja&nbsp;</mat-card-subtitle>
-          <span>{{ this.profileForInput.date }}</span>
-        </div>
-
-      </div>
-    </mat-card>
-
-    <!-- Adresa -->
-    <mat-card>
-
-      <div fxLayout="row" fxLayoutAlign="start center" fxLayout="1vw">
-        <mat-icon>location_on</mat-icon>
-        <div fxLayoutAlign="column" *ngIf="!this.isEditing">
-
-          <mat-card-subtitle>Adresa&nbsp;</mat-card-subtitle>
-          <span>{{ this.profileForInput.address }}</span>
-        </div>
-
-        <mat-form-field *ngIf="this.isEditing">
-          <input matInput type="text" placeholder="Adresa" ngModel name="address"
-            [(ngModel)]="this.profileForInput.address" required #addressInput="ngModel">
-          <mat-error *ngIf="addressInput.hasError('required')">Unesite ispravnu adresu</mat-error>
+        <mat-form-field>
+          <input matInput type="text" placeholder="Opis" ngModel name="description"
+            [(ngModel)]="this.advertForEditing.description" required #descInput="ngModel">
         </mat-form-field>
 
       </div>
     </mat-card>
 
-    <!-- Broj telefona -->
     <mat-card>
 
       <div fxLayout="row" fxLayoutAlign="start center" fxLayout="1vw">
-        <mat-icon>phone</mat-icon>
-        <div fxLayoutAlign="column" *ngIf="!this.isEditing">
 
-          <mat-card-subtitle>Broj telefona&nbsp;</mat-card-subtitle>
-          <span>{{ this.profileForInput.telephone }}</span>
-        </div>
-
-        <mat-form-field *ngIf="this.isEditing">
-          <input matInput type="text" placeholder="Broj telefona" required ngModel name="telephone"
-            [(ngModel)]="this.profileForInput.telephone" #phoneInput="ngModel">
+        <mat-form-field>
+          <input type="number" step="1000" matInput placeholder="Cena nekretnine" ngModel name="price"
+            [(ngModel)]="this.advertForEditing.price" required #priceInput="ngModel">
         </mat-form-field>
 
       </div>
     </mat-card>
 
-    <button *ngIf="this.isEditing" mat-raised-button type="submit" color="primary">Sačuvaj korisnika</button>
+    <mat-card>
+
+      <div fxLayout="row" fxLayoutAlign="start center" fxLayout="1vw">
+
+        <mat-form-field>
+          <input type="number" step="1000" matInput placeholder="Kvadratura" ngModel name="quadrature"
+            [(ngModel)]="this.advertForEditing.quadrature" required #quadratureInput="ngModel">
+        </mat-form-field>
+
+      </div>
+    </mat-card>
+
+    <mat-card>
+
+      <div fxLayout="row" fxLayoutAlign="start center" fxLayout="1vw">
+
+        <mat-form-field>
+          <input type="number" step="1000" matInput placeholder="Broj soba" ngModel name="numOfRooms"
+            [(ngModel)]="this.advertForEditing.numOfRooms" required #roomInput="ngModel">
+        </mat-form-field>
+
+      </div>
+    </mat-card>
+
+    <mat-card>
+
+      <div fxLayout="row" fxLayoutAlign="start center" fxLayout="1vw">
+
+
+        <mat-form-field>
+          <input type="text" matInput placeholder="Grejanje" ngModel name="heating"
+            [(ngModel)]=" this.advertForEditing.heating" required #heatingInput="ngModel">
+        </mat-form-field>
+
+      </div>
+    </mat-card>
+
+    <mat-card>
+
+      <div fxLayout="row" fxLayoutAlign="start center" fxLayout="1vw">
+
+        <mat-form-field>
+          <input type="text" matInput placeholder="Broj spratova" ngModel name="numOfFloor"
+            [(ngModel)]="this.advertForEditing.numOfFloor" required #floorInput="ngModel">
+        </mat-form-field>
+
+      </div>
+    </mat-card>
+
+    <mat-card>
+
+      <div fxLayout="row" fxLayoutAlign="start center" fxLayout="1vw" fxLayoutGap="25px">
+
+        <mat-checkbox ngModel name="isRegistered" value="this.advertForEditing.isRegistered"
+          [(ngModel)]="this.advertForEditing.isRegistered">Uknjižen
+        </mat-checkbox>
+        <mat-checkbox ngModel name="isOnALot" value="this.advertForEditing.isOnALot"
+          [(ngModel)]="this.advertForEditing.isOnALot">Na placu</mat-checkbox>
+        <mat-checkbox ngModel name="isPermitted" value="this.advertForEditing.isPermitted"
+          [(ngModel)]="this.advertForEditing.isPermitted">Dozvola za gradnju
+        </mat-checkbox>
+        <mat-checkbox ngModel name="hasElevator" value="this.advertForEditing.hasElevator"
+          [(ngModel)]="this.advertForEditing.hasElevator">Lift</mat-checkbox>
+        <mat-checkbox ngModel name="hasTerrace" value="this.advertForEditing.hasTerrace"
+          [(ngModel)]="this.advertForEditing.hasTerrace">Terasa</mat-checkbox>
+
+      </div>
+    </mat-card>
+
+    <mat-card>
+
+      <div fxLayout="row" fxLayoutAlign="start center" fxLayout="1vw" fxLayoutGap="25px">
+        <mat-checkbox ngModel name="hasParking" value="this.advertForEditing.hasParking"
+          [(ngModel)]="this.advertForEditing.hasParking">Parking</mat-checkbox>
+        <mat-checkbox ngModel name="hasCableTv" value="this.advertForEditing.hasCableTv"
+          [(ngModel)]="this.advertForEditing.hasCableTv">Kablovska TV
+        </mat-checkbox>
+        <mat-checkbox ngModel name="hasInternet" value="this.advertForEditing.hasInternet"
+          [(ngModel)]="this.advertForEditing.hasInternet">Internet
+        </mat-checkbox>
+        <mat-checkbox ngModel name="hasPhone" value="this.advertForEditing.hasPhone"
+          [(ngModel)]="this.advertForEditing.hasPhone">Telefon</mat-checkbox>
+        <mat-checkbox ngModel name="hasIntercom" value="this.advertForEditing.hasIntercom"
+          [(ngModel)]="this.advertForEditing.hasIntercom">Interfon
+        </mat-checkbox>
+
+      </div>
+    </mat-card>
+
+    <button mat-raised-button type="submit" color="primary">Izmeni oglas</button>
   </form>
 </mat-dialog-content>

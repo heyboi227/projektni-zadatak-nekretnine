@@ -5,6 +5,7 @@ import { AddadvertComponent } from './addadvert/addadvert.component';
 import { HomeComponent } from './home/home.component';
 import { LoginComponent } from './login/login.component';
 import { RealEstateViewComponent } from './real-estate-view/real-estate-view.component';
+import { SearchEstatesComponent } from './search-estates/search-estates.component';
 import { SignupComponent } from './signup/signup.component';
 
 const routes: Routes = [
@@ -13,7 +14,8 @@ const routes: Routes = [
   { path: 'view', component: RealEstateViewComponent },
   { path: 'signup', component: SignupComponent },
   { path: 'login', component: LoginComponent },
-  { path: 'addadvert', component: AddadvertComponent }
+  { path: 'addadvert', component: AddadvertComponent },
+  { path: 'search', component: SearchEstatesComponent }
 ];
 
 @NgModule({

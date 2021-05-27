@@ -14,7 +14,10 @@ import { SignupComponent } from './signup/signup.component';
 import { LoginComponent } from './login/login.component';
 import { AddadvertComponent } from './addadvert/addadvert.component';
 import { ProfileComponent } from './profile/profile.component';
+import { SearchEstatesComponent } from './search-estates/search-estates.component';
 import { RealEstateComponent } from './real-estate/real-estate.component';
+import { UserService } from './user.service';
+import { RealEstateService } from './real-estate.service';
 
 @NgModule({
   declarations: [
@@ -26,7 +29,8 @@ import { RealEstateComponent } from './real-estate/real-estate.component';
     LoginComponent,
     AddadvertComponent,
     ProfileComponent,
-    RealEstateComponent
+    SearchEstatesComponent,
+    RealEstateComponent,
   ],
   imports: [
     BrowserModule,
@@ -36,7 +40,7 @@ import { RealEstateComponent } from './real-estate/real-estate.component';
     FlexLayoutModule,
     FormsModule
   ],
-  providers: [],
+  providers: [UserService, RealEstateService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

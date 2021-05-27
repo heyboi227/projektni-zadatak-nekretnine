@@ -42,10 +42,14 @@
           </ul>
         </div>
         <div fxFlex fxLayoutAlign="end center" fxLayoutGap="10px">
-          <button mat-raised-button color="primary" (click)="editAdvert(rEstate.id)">
+          <button mat-raised-button color="primary"
+            *ngIf="(this.userService.currentUser != null && this.userService.currentUser.email == rEstate.createdBy)"
+            (click)="editAdvert(rEstate.id)">
             Izmeni
           </button>
-          <button mat-raised-button color="warn" (click)="deleteAdvert(rEstate.id)">
+          <button mat-raised-button color="warn"
+            *ngIf="(this.userService.currentUser != null && this.userService.currentUser.email == rEstate.createdBy)"
+            (click)="deleteAdvert(rEstate.id)">
             Ukloni
           </button>
         </div>

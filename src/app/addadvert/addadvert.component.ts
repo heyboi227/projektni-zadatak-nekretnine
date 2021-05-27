@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { Router } from '@angular/router';
 import { RealEstateService } from '../real-estate.service';
+import { UserService } from '../user.service';
 
 @Component({
   selector: 'app-addadvert',
@@ -13,7 +14,7 @@ export class AddadvertComponent implements OnInit {
   errorExists = false;
   errorText = "";
 
-  constructor(private realEstateService: RealEstateService, private router: Router) { }
+  constructor(private realEstateService: RealEstateService, private router: Router, private userService: UserService) { }
 
   ngOnInit(): void {
   }
@@ -47,7 +48,8 @@ export class AddadvertComponent implements OnInit {
         form.value.hasCableTv,
         form.value.hasInternet,
         form.value.hasPhone,
-        form.value.hasIntercom);
+        form.value.hasIntercom,
+        this.userService.currentUser.email);
 
       sessionStorage.setItem("currentRealEstate", form.value.title);
 

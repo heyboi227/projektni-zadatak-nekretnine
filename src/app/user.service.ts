@@ -22,8 +22,8 @@ export interface User {
 
 export class UserService {
 
-  currentUser: User = UserService.dummyUserList[0];
-  isSignedIn: boolean = true;
+  currentUser: User = null;
+  isSignedIn: boolean = false;
 
   static dummyUserList: Array<User> = [
     {

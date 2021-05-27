@@ -1,13 +1,14 @@
-<mat-toolbar style="background-color: white;">
-    <div id="logo-holder">
-        <img src="../../assets/logo.png" alt="logo slika" width="200px">
-    </div>
-    <div id="nav-list" fxFlex fxLayoutAlign="center center">
-        <ul class="list-items" fxLayout="row" fxLayoutGap="35px">
-            <li><a routerLink="/home" routerLinkActive="active" >Početna</a></li>
-            <li><a routerLink="/addadvert" routerLinkActive="active" (click)="loggedInCheck()">Postavi oglas</a></li>
-            <li><a routerLink="/signup" routerLinkActive="active">Registracija</a></li>
-            <li><a routerLink="/login" routerLinkActive="active">Prijava</a></li>
-        </ul>
-    </div>
+<mat-toolbar style="background-color: white; margin-top: 15px;">
+  <div id="logo-holder">
+    <img src="../../assets/logo22.png" alt="logo slika" width="200px">
+  </div>
+  <div id="nav-list" fxFlex fxLayoutAlign="center center">
+    <ul class="list-items" fxLayout="row" fxLayoutGap="35px">
+      <li><a routerLink="/home" routerLinkActive="active">Početna</a></li>
+      <li><a routerLink="/view" routerLinkActive="active">Oglasi</a></li>
+      <li><a routerLink="/addadvert" routerLinkActive="active" (click)="loggedInCheck()">Postavi oglas</a></li>
+      <li><a routerLink="/signup" routerLinkActive="active">Registracija</a></li>
+      <li><a routerLink="/login" routerLinkActive="active">Prijava</a></li>
+    </ul>
+  </div>
 </mat-toolbar>

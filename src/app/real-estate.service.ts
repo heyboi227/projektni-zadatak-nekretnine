@@ -24,6 +24,7 @@ export interface RealEstate {
   hasInternet: boolean;
   hasPhone: boolean;
   hasIntercom: boolean;
+  createdBy: String;
 }
 
 @Injectable({
@@ -57,7 +58,8 @@ export class RealEstateService {
       hasCableTv: true,
       hasInternet: true,
       hasPhone: true,
-      hasIntercom: false
+      hasIntercom: false,
+      createdBy: "test1@test.com"
     },
     {
       id: 2,
@@ -82,7 +84,8 @@ export class RealEstateService {
       hasCableTv: true,
       hasInternet: true,
       hasPhone: true,
-      hasIntercom: true
+      hasIntercom: true,
+      createdBy: "test2@test.com"
     },
     {
       id: 3,
@@ -107,7 +110,8 @@ export class RealEstateService {
       hasCableTv: true,
       hasInternet: true,
       hasPhone: true,
-      hasIntercom: false
+      hasIntercom: false,
+      createdBy: "test3@test.com"
     },
     {
       id: 4,
@@ -132,7 +136,8 @@ export class RealEstateService {
       hasCableTv: true,
       hasInternet: true,
       hasPhone: true,
-      hasIntercom: false
+      hasIntercom: false,
+      createdBy: "mjeknic@hotmail.com"
     },
     {
       id: 5,
@@ -157,7 +162,8 @@ export class RealEstateService {
       hasCableTv: true,
       hasInternet: true,
       hasPhone: true,
-      hasIntercom: true
+      hasIntercom: true,
+      createdBy: "mbogo@bogo.com"
     },
     {
       id: 6,
@@ -182,7 +188,8 @@ export class RealEstateService {
       hasCableTv: true,
       hasInternet: true,
       hasPhone: true,
-      hasIntercom: false
+      hasIntercom: false,
+      createdBy: "test1@test.com"
     },
   ];
 
@@ -195,6 +202,17 @@ export class RealEstateService {
   getRealEstate(realEstateTitle: String): RealEstate {
     this.currentRealEstate = this.dummyRealEstateList.find(estateToFind => estateToFind.title == realEstateTitle)!;
     return this.currentRealEstate;
+  }
+
+  getRealEstateById(id: number): RealEstate {
+    var foundRealEstate: RealEstate
+    this.dummyRealEstateList.forEach(rEstate => {
+      if (rEstate.id == id) {
+        foundRealEstate = rEstate;
+      }
+    });
+    this.currentRealEstate = foundRealEstate;
+    return foundRealEstate;
   }
 
   addAdvert(category: "Kuća" | "Stan",
@@ -218,7 +236,8 @@ export class RealEstateService {
     hasCableTv: boolean,
     hasInternet: boolean,
     hasPhone: boolean,
-    hasIntercom: boolean): RealEstate {
+    hasIntercom: boolean,
+    createdBy: String): RealEstate {
 
     var maxId: number = 0;
     this.dummyRealEstateList.forEach(rEstate => {
@@ -252,7 +271,8 @@ export class RealEstateService {
       hasCableTv,
       hasInternet,
       hasPhone,
-      hasIntercom
+      hasIntercom,
+      createdBy
     };
 
     this.dummyRealEstateList.push(realEstate);

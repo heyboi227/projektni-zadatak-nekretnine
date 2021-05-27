@@ -23,7 +23,7 @@ export class HomeComponent implements OnInit {
       form.value.quadrature,
       form.value.price,
     );
-    this.router.navigate(['/view']);
+    this.router.navigate(['/search']);
   }
 
 }

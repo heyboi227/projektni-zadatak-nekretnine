@@ -18,6 +18,7 @@ import { SearchEstatesComponent } from './search-estates/search-estates.componen
 import { RealEstateComponent } from './real-estate/real-estate.component';
 import { UserService } from './user.service';
 import { RealEstateService } from './real-estate.service';
+import { FooterComponent } from './footer/footer.component';
 
 @NgModule({
   declarations: [
@@ -31,6 +32,7 @@ import { RealEstateService } from './real-estate.service';
     ProfileComponent,
     SearchEstatesComponent,
     RealEstateComponent,
+    FooterComponent,
   ],
   imports: [
     BrowserModule,

@@ -36,8 +36,11 @@ export class RealEstateViewComponent implements OnInit {
     })
   }
 
-  deleteAdvert(advertId: number): void {
-    console.log(advertId);
+  deleteAdvert(advert: RealEstate): void {
+    var adIndex = this.realEstateService.dummyRealEstateList.indexOf(advert);
+    if (adIndex > -1 && confirm("Da li ste sigurni da želite da obrišete ovaj oglas?")) {
+      this.realEstateService.dummyRealEstateList.splice(adIndex, 1);
+    }
   }
 
 

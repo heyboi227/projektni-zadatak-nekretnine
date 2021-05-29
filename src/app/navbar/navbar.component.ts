@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
 import { Router } from '@angular/router';
+import { ProfileComponent } from '../profile/profile.component';
 import { UserService } from '../user.service';
 
 @Component({
@@ -9,18 +11,38 @@ import { UserService } from '../user.service';
 })
 export class NavbarComponent implements OnInit {
 
-  constructor(private userService: UserService, private router: Router) { }
+  profileOpened: boolean = false;
+
+  constructor(public userService: UserService, private router: Router, private dialog: MatDialog) { }
+
+  openProfile(userId: number): void {
+    this.profileOpened = true;
+
+    const profileDialog = this.dialog.open(ProfileComponent, {
+      disableClose: true,
+      width: "35vw",
+      data: { user: this.userService.getUserById(userId) }
+    });
+
+    profileDialog.afterClosed().subscribe(result => {
+      this.profileOpened = false;
+    })
+  }
+
+  signOut(): void {
+    this.userService.isSignedIn = false;
+    this.userService.currentUser = null;
+    this.router.navigate(['']);
+  }
 
   ngOnInit(): void {
   }
 
   loggedInCheck(): void {
-
     if (!this.userService.isSignedIn) {
       alert("Morate biti ulogovani da biste dodali novi oglas!");
       this.router.navigate(['/login']);
     }
-
   }
 
 }

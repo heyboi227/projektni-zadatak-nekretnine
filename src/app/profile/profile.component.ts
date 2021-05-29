@@ -10,60 +10,31 @@ import { User, UserService } from '../user.service';
 })
 export class ProfileComponent implements OnInit {
 
-
-
   isEditing: boolean = false;
-
-  profileForInput: User | undefined;
-
-
+  profileForInput: User;
 
   constructor(@Inject(MAT_DIALOG_DATA) public data: any, public userService: UserService) { }
 
-
-
   ngOnInit(): void {
-
     this.profileForInput = {
-
       id: this.data.user.id,
-
       email: this.data.user.email,
-
       password: this.data.user.password,
-
       name: this.data.user.name,
-
       surname: this.data.user.surname,
-
       address: this.data.user.address,
-
       telephone: this.data.user.telephone
-
     };
-
   }
-
-
 
   finishEditing(form: NgForm): void {
-
-    this.data.user.email = this.profileForInput!.email;
-
-    this.data.user.password = this.profileForInput!.password;
-
-    this.data.user.name = this.profileForInput!.name;
-
-    this.data.user.surname = this.profileForInput!.surname;
-
-    this.data.user.address = this.profileForInput!.address;
-
-    this.data.user.telephone = this.profileForInput!.telephone;
-
-
+    this.data.user.email = this.profileForInput.email;
+    this.data.user.password = this.profileForInput.password;
+    this.data.user.name = this.profileForInput.name;
+    this.data.user.surname = this.profileForInput.surname;
+    this.data.user.address = this.profileForInput.address;
+    this.data.user.telephone = this.profileForInput.telephone;
 
     this.isEditing = false;
-
   }
-
 }

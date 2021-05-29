@@ -1,28 +1,41 @@
 #adverts-list {
-    width: max-content;
-    height: max-content;
-    margin-top: 40px;
+  width: max-content;
+  height: max-content;
+  margin-top: 40px;
 }
+
 .advert {
-    width: 900px;
-    height: 250px;
-    margin-bottom: 50px;
+  width: max-content;
+  height: max-content;
 }
-.price-listed {
-    font-weight: bold;
-    font-size: 30px;
+
+.price-listed,
+.mandatory-info,
+#advert-title {
+  font-weight: bold;
 }
+
 .additional-info {
-    list-style-type: none;
-    width: 250px;
+  list-style-type: none;
+  width: 250px;
 }
+
+.price-listed {
+  font-size: 30px;
+}
+
 .mandatory-info {
-    font-weight: bold;
-    font-size: 18px;
+  font-size: 18px;
 }
+
+#advert-title {
+  font-size: 22px;
+}
+
 .info-area {
-    margin: 30px;
+  margin: 30px;
 }
+
 .info {
-    margin-top: 25px;
+  margin-top: 25px;
 }

@@ -30,9 +30,11 @@ export class NavbarComponent implements OnInit {
   }
 
   signOut(): void {
-    this.userService.isSignedIn = false;
-    this.userService.currentUser = null;
-    this.router.navigate(['']);
+    if (confirm("Da li ste sigurni da želite da se odjavite?")) {
+      this.userService.isSignedIn = false;
+      this.userService.currentUser = null;
+      this.router.navigate(['']);
+    }
   }
 
   ngOnInit(): void {

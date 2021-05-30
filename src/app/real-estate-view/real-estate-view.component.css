@@ -1,12 +1,16 @@
 #adverts-list {
   width: max-content;
   height: max-content;
-  margin-top: 40px;
+  margin-top: 25px;
 }
 
 .advert {
   width: max-content;
   height: max-content;
+  background-color: rgb(219, 219, 219);
+  margin-bottom: 15px;
+  padding: 20px;
+  border-radius: 15px;
 }
 
 .price-listed,

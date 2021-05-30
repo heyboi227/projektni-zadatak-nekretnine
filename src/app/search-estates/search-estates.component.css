@@ -1,42 +1,45 @@
 #adverts-list {
-    width: max-content;
-    height: max-content;
-    margin-top: 40px;
-  }
-  
-  .advert {
-    width: max-content;
-    height: max-content;
-  }
-  
-  .price-listed,
-  .mandatory-info,
-  #advert-title {
-    font-weight: bold;
-  }
-  
-  .additional-info {
-    list-style-type: none;
-    width: 250px;
-  }
-  
-  .price-listed {
-    font-size: 30px;
-  }
-  
-  .mandatory-info {
-    font-size: 18px;
-  }
-  
-  #advert-title {
-    font-size: 22px;
-  }
-  
-  .info-area {
-    margin: 30px;
-  }
-  
-  .info {
-    margin-top: 25px;
-  }
-  
+  width: max-content;
+  height: max-content;
+  margin-top: 25px;
+}
+
+.advert {
+  width: max-content;
+  height: max-content;
+  background-color: rgb(219, 219, 219);
+  margin-bottom: 15px;
+  padding: 20px;
+  border-radius: 15px;
+}
+
+.price-listed,
+.mandatory-info,
+#advert-title {
+  font-weight: bold;
+}
+
+.additional-info {
+  list-style-type: none;
+  width: 250px;
+}
+
+.price-listed {
+  font-size: 30px;
+}
+
+.mandatory-info {
+  font-size: 18px;
+}
+
+#advert-title {
+  font-size: 22px;
+}
+
+.info-area {
+  margin: 30px;
+}
+
+.info {
+  margin-top: 25px;
+}

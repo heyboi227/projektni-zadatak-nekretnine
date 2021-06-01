@@ -282,6 +282,20 @@ export class RealEstateService {
     return realEstate;
   }
 
+/*
+  Komponenta za filtriranje nekretnina
+  Ime komponente: filterEstates
+  Programer: M.Jeknić
+  Verzija: 1.0 (28. maj 2021.)
+
+  Procedura se poziva na sledeći način: filterEstates(category, advertType, location, quadrature, price)
+
+  Ulazni parametri: category - kategorija nekretnina koje se pretražuju, advertType - tip oglasa nekretnina koje se pretražuju,
+  location - lokacija nekretnina koje se pretražuju, quadrature - kvadratura nekretnina koje se pretražuju,
+  price - cena nekretnina koje se pretražuju
+
+  Izlazni parametar: Niz oglasa nekretnina koji odgovaraju zadatim ulaznim parametrima
+*/
   filterEstates(category: String, advertType: String, location: String, quadrature: number, price: number): RealEstate[] {
     return this.dummyRealEstateList.filter(function (element) {
       if (category && advertType && location && quadrature && price) {

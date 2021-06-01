@@ -7,20 +7,19 @@
       <li><a routerLink="/home" routerLinkActive="active">Početna</a></li>
       <li><a routerLink="/view" routerLinkActive="active">Oglasi</a></li>
       <li><a routerLink="/addadvert" routerLinkActive="active" (click)="loggedInCheck()">Postavi oglas</a></li>
-      <li *ngIf="this.userService.currentUser == null" fxLayoutGap="5px">
+      <li *ngIf="!this.userService.isSignedIn" fxLayoutGap="5px">
         <mat-icon>person_add</mat-icon><a routerLink="/signup" routerLinkActive="active">Registracija</a>
       </li>
-      <li *ngIf="this.userService.currentUser == null" fxLayoutGap="5px">
+      <li *ngIf="!this.userService.isSignedIn" fxLayoutGap="5px">
         <mat-icon>person</mat-icon><a routerLink="/login" routerLinkActive="active">Prijava</a>
       </li>
     </ul>
   </div>
-  <div id="logo-buttons" fxLayoutGap="10px">
-    <button mat-raised-button color="primary" *ngIf="this.userService.currentUser != null"
-      (click)="openProfile(this.userService.currentUser.id)">
+  <div id="logo-buttons" fxLayoutGap="10px" *ngIf="this.userService.isSignedIn">
+    <button mat-raised-button color="primary" (click)="openProfile(this.userService.currentUser.id)">
       {{ this.userService.currentUser.email }}
     </button>
-    <button mat-raised-button color="warn" *ngIf="this.userService.currentUser != null" (click)="signOut()">
+    <button mat-raised-button color="warn" (click)="signOut()">
       Odjava
     </button>
   </div>

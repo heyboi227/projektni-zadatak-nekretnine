@@ -39,7 +39,7 @@ export class UserService {
     {
       id: 2,
       email: "test2@test.com",
-      password: "test123456",
+      password: "test654321",
       name: "Mika",
       surname: "Mikić",
       address: "Ružice Sokić 54, Beograd",

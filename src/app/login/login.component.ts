@@ -27,7 +27,7 @@ export class LoginComponent implements OnInit {
     var user = this.userService.getUser(email);
     if (!user) {
       this.errorExists = true;
-      this.errorText = "Nema registrovanog korisnika sa zadatim mejlom!";
+      this.errorText = "Nema registrovanog korisnika sa zadatim parametrima!";
       return;
 
     }

@@ -32,7 +32,7 @@
     "@angular/cli": "~19.2.0",
     "@angular/compiler-cli": "~19.2.0",
     "@types/jasmine": "~5.1.7",
-    "@types/lodash": "^4.17.15",
+    "@types/lodash": "^4.17.16",
     "@types/node": "^22.13.9",
     "jasmine-core": "~5.6.0",
     "karma": "~6.4.4",

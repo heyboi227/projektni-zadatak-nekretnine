@@ -19,7 +19,7 @@
     "@angular/forms": "~20.2.1",
     "@angular/material": "^20.2.0",
     "@angular/platform-browser": "^20.1.7",
-    "@angular/platform-browser-dynamic": "~20.2.1",
+    "@angular/platform-browser-dynamic": "~20.2.2",
     "@angular/router": "~20.2.1",
     "loadash": "^1.0.0",
     "lodash": "^4.17.21",
